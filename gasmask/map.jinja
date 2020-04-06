@@ -18,6 +18,5 @@
 {%- set gasmask = salt['grains.filter_by']( {'defaults': defaults}, default='defaults', merge=_config) %}
 
 {%- if gasmask.pkg.use_upstream_archive %}
-       {%- set uri = '%s/%s/%s_%s.%s'|format(gasmask.pkg.archive.uri, gasmask.version, gasmask.pkg.name, gasmask.version, gasmask.pkg.suffix) %}
-       {%- do gasmask.pkg.archive.update({ 'name': '/Applications', 'source': uri }) %}
+       {%- do gasmask.pkg.archive.update({ 'name': '/Applications', 'source': '%s/%s/%s_%s.%s'|format(gasmask.pkg.uri, gasmask.version, gasmask.pkg.name, gasmask.version, gasmask.pkg.suffix) }) %}
 {%- endif %}

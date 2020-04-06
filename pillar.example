@@ -4,6 +4,7 @@
 gasmask:
   version: 0.8.6
   pkg:
+    uri: 'https://github.com/2ndalpha/gasmask/releases/download'
     use_upstream_archive: true
     archive:
-      source_hash: 22374DA48D7359E2803F6AC41627980585D91F45
+      source_hash: 9f75d0b11340d70832f87011c3d8ed97b9b18b3a56dec5f860d4040bb7404500

@@ -9,20 +9,7 @@ gasmask-package-archive-install-extract:
   pkg.installed:
     - names:
       - curl
-      - tar
       - gzip
-  file.directory:
-    - name: {{ gasmask.pkg.archive.name }}
-    - user: {{ gasmask.rootuser }}
-    - group: {{ gasmask.rootgroup }}
-    - mode: 755
-    - makedirs: True
-    - require_in:
-      - archive: gasmask-package-archive-install-extract
-    - recurse:
-        - user
-        - group
-        - mode
   archive.extracted:
     {{- format_kwargs(gasmask.pkg.archive) }}
     - archive_format: {{ gasmask.pkg.format }}

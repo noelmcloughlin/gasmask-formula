@@ -7,5 +7,5 @@
 gasmask-cli-package-archive-clean-file-absent:
   file.absent:
     - names:
-      - {{ gasmask.pkg.archive.name }}
+      - /Applications/Gas Mask
       - {{ gasmask.dir.tmp }}

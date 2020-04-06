@@ -22,4 +22,4 @@ MacOS:
   pkg:
     format: zip
     archive:
-      source_hash: 22374DA48D7359E2803F6AC41627980585D91F45
+      source_hash: 5c5ecabed7f2eb5561787a501df5a80da2848f83
