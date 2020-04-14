@@ -1,9 +1,16 @@
 # -*- coding: utf-8 -*-
 # vim: ft=sls
 
-{%- set tplroot = tpldir.split('/')[0] %}
-{%- from tplroot ~ "/map.jinja" import gasmask with context %}
-{%- set p = gasmask.pkg %}
+    {%- if grains.os_family == 'MacOS' %}
 
 include:
   - .archive
+
+    {%- else %}
+
+gasmask-init-unapplicable:
+  test.show_notification:
+    - text: |
+        Gasmask is only applicable on MacOS
+
+    {%- endif %}

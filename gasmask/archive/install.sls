@@ -5,7 +5,9 @@
 {%- from tplroot ~ "/map.jinja" import gasmask with context %}
 {%- from tplroot ~ "/files/macros.jinja" import format_kwargs with context %}
 
-gasmask-package-archive-install-extract:
+    {%- if grains.os_family == 'MacOS' %}
+
+gasmask-archive-install-extract:
   pkg.installed:
     - names:
       - curl
@@ -20,3 +22,12 @@ gasmask-package-archive-install-extract:
     - enforce_toplevel: false
     - options: '--strip-components=1'
        {%- endif %}
+
+    {%- else %}
+
+gasmask-package-archive-unapplicable:
+  test.show_notification:
+    - text: |
+        Gasmask is only installable on MacOS
+
+    {%- endif %}
